@@ -14,7 +14,7 @@ const Navbar = () => {
     { to: "/products", label: t("Products", "उत्पादने") },
     { to: "/about", label: t("About", "आमच्याबद्दल") },
     { to: "/contact", label: t("Contact", "संपर्क") },
-    { to: "/admin", label: t("Admin", "अ‍ॅडमिन") },
+    { to: "/admin-login", label: t("Admin Login", "अ‍ॅडमिन लॉग इन") },
   ];
 
   const isActive = (path: string) => location.pathname === path;

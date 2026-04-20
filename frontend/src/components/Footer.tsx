@@ -18,7 +18,7 @@ const Footer = () => {
             <p className="text-sm opacity-80">
               {t(
                 "Quality dairy products from Kalamwadi. Owned by Umesh Suryawanshi.",
-                "कालमवाडी येथून दर्जेदार दुग्धजन्य उत्पादने. मालक: उमेश सूर्यवंशी."
+                "काळमवाडी येथून दर्जेदार दुग्धजन्य उत्पादने. मालक: उमेश सूर्यवंशी."
               )}
             </p>
           </div>
@@ -29,7 +29,7 @@ const Footer = () => {
             <div className="space-y-2 text-sm opacity-80">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 shrink-0" />
-                <span>{t("Kalamwadi, Maharashtra", "कालमवाडी, महाराष्ट्र")}</span>
+                <span>{t("Kalamwadi, Maharashtra", "काळमवाडी, महाराष्ट्र")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0" />
@@ -49,11 +49,12 @@ const Footer = () => {
               <a href="/products" className="block hover:underline">{t("Products", "उत्पादने")}</a>
               <a href="/about" className="block hover:underline">{t("About Us", "आमच्याबद्दल")}</a>
               <a href="/contact" className="block hover:underline">{t("Contact", "संपर्क")}</a>
+              <a href="/admin-login" className="block hover:underline font-semibold text-dairy-gold">{t("Admin Login", "अ‍ॅडमिन लॉग इन")}</a>
             </div>
           </div>
         </div>
         <div className="border-t border-primary-foreground/20 mt-8 pt-6 text-center text-sm opacity-60">
-          © 2026 {t("Aditya Dudh Sankalan Kendra Kalamwadi", "आदित्य दूध संकलन केंद्र कालमवाडी")}. {t("All rights reserved.", "सर्व हक्क राखीव.")}
+          © 2026 {t("Aditya Dudh Sankalan Kendra Kalamwadi", "आदित्य दूध संकलन केंद्र काळमवाडी")}. {t("All rights reserved.", "सर्व हक्क राखीव.")}
         </div>
       </div>
     </footer>

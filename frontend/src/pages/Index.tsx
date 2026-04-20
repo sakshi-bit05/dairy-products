@@ -29,7 +29,7 @@ const Index = () => {
               {t("Aditya Dudh Sankalan Kendra", "आदित्य दूध संकलन केंद्र")}
             </h1>
             <p className="font-display text-xl text-dairy-gold mb-2">
-              {t("Kalamwadi", "कालमवाडी")}
+              {t("Kalamwadi", "काळमवाडी")}
             </p>
             <p className="text-primary-foreground/80 text-lg mb-2">
               {t("Owner: Umesh Suryawanshi", "मालक: उमेश सूर्यवंशी")}

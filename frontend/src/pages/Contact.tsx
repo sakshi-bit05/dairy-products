@@ -17,7 +17,7 @@ const Contact = () => {
   };
 
   const info = [
-    { icon: MapPin, label: t("Address", "पत्ता"), value: t("Kalamwadi, Maharashtra, India", "कालमवाडी, महाराष्ट्र, भारत") },
+    { icon: MapPin, label: t("Address", "पत्ता"), value: t("Kalamwadi, Maharashtra, India", "काळमवाडी, महाराष्ट्र, भारत") },
     { icon: Phone, label: t("Phone", "फोन"), value: "+91 83905 14148" },
     { icon: Mail, label: t("Email", "ईमेल"), value: "umeshsurya4832@gmail.com" },
     { icon: Clock, label: t("Hours", "वेळ"), value: t("Mon-Sat: 6AM - 8PM", "सोम-शनि: सकाळी ६ - रात्री ८") },
