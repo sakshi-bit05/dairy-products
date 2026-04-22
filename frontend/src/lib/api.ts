@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = `${import.meta.env.VITE_API_URL}/api`;
 
 export interface Product {
   id: string;
@@ -29,44 +29,74 @@ export interface Category {
 export const api = {
   // Products
   getProducts: async (): Promise<Product[]> => {
-    const response = await fetch(`${API_BASE_URL}/products`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch products');
+    try {
+      const response = await fetch(`${API_BASE_URL}/products`);
+      if (!response.ok) {
+        console.error(`API Error: ${response.status} - Failed to fetch products`);
+        throw new Error(`Failed to fetch products: ${response.statusText}`);
+      }
+      return response.json();
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      throw error;
     }
-    return response.json();
   },
 
   getProduct: async (id: string): Promise<Product> => {
-    const response = await fetch(`${API_BASE_URL}/products/${id}`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch product');
+    try {
+      const response = await fetch(`${API_BASE_URL}/products/${id}`);
+      if (!response.ok) {
+        console.error(`API Error: ${response.status} - Failed to fetch product ${id}`);
+        throw new Error(`Failed to fetch product: ${response.statusText}`);
+      }
+      return response.json();
+    } catch (error) {
+      console.error(`Error fetching product ${id}:`, error);
+      throw error;
     }
-    return response.json();
   },
 
   getProductsByCategory: async (category: string): Promise<Product[]> => {
-    const response = await fetch(`${API_BASE_URL}/products/category/${category}`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch products by category');
+    try {
+      const response = await fetch(`${API_BASE_URL}/products/category/${category}`);
+      if (!response.ok) {
+        console.error(`API Error: ${response.status} - Failed to fetch products for category ${category}`);
+        throw new Error(`Failed to fetch products by category: ${response.statusText}`);
+      }
+      return response.json();
+    } catch (error) {
+      console.error(`Error fetching products for category ${category}:`, error);
+      throw error;
     }
-    return response.json();
   },
 
   // Categories
   getCategories: async (): Promise<Category[]> => {
-    const response = await fetch(`${API_BASE_URL}/products/categories/all`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch categories');
+    try {
+      const response = await fetch(`${API_BASE_URL}/products/categories/all`);
+      if (!response.ok) {
+        console.error(`API Error: ${response.status} - Failed to fetch categories`);
+        throw new Error(`Failed to fetch categories: ${response.statusText}`);
+      }
+      return response.json();
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+      throw error;
     }
-    return response.json();
   },
 
   // Health check
   healthCheck: async (): Promise<{ status: string; message: string }> => {
-    const response = await fetch(`${API_BASE_URL}/health`);
-    if (!response.ok) {
-      throw new Error('Backend not available');
+    try {
+      const response = await fetch(`${API_BASE_URL}/health`);
+      if (!response.ok) {
+        console.error(`API Error: ${response.status} - Backend health check failed`);
+        throw new Error(`Backend not available: ${response.statusText}`);
+      }
+      return response.json();
+    } catch (error) {
+      console.error('Backend health check error:', error);
+      throw error;
     }
-    return response.json();
   }
 };

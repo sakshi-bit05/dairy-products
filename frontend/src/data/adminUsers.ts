@@ -11,10 +11,11 @@ export interface AdminUser {
 }
 
 // MongoDB API functions for admin authentication
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = `${import.meta.env.VITE_API_URL}/api`;
 
 export const authenticateAdmin = async (email: string, password: string): Promise<AdminUser | null> => {
   try {
+    console.log('Attempting admin authentication for:', email);
     const response = await fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
       headers: {
@@ -23,7 +24,13 @@ export const authenticateAdmin = async (email: string, password: string): Promis
       body: JSON.stringify({ email, password }),
     });
 
+    if (!response.ok) {
+      console.error(`Auth API Error: ${response.status} - ${response.statusText}`);
+      throw new Error(`Authentication failed: ${response.statusText}`);
+    }
+
     const data = await response.json();
+    console.log('Auth response:', data);
     
     if (data.success) {
       // Store session in localStorage
@@ -35,6 +42,7 @@ export const authenticateAdmin = async (email: string, password: string): Promis
       
       return data.user as AdminUser;
     } else {
+      console.error('Authentication failed:', data.message || 'Invalid credentials');
       return null;
     }
   } catch (error) {

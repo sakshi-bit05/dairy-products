@@ -1,5 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Milk, Phone, MapPin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -46,10 +47,10 @@ const Footer = () => {
               {t("Quick Links", "द्रुत दुवे")}
             </h4>
             <div className="space-y-2 text-sm opacity-80">
-              <a href="/products" className="block hover:underline">{t("Products", "उत्पादने")}</a>
-              <a href="/about" className="block hover:underline">{t("About Us", "आमच्याबद्दल")}</a>
-              <a href="/contact" className="block hover:underline">{t("Contact", "संपर्क")}</a>
-              <a href="/admin-login" className="block hover:underline font-semibold text-dairy-gold">{t("Admin Login", "अ‍ॅडमिन लॉग इन")}</a>
+              <Link to="/products" className="block hover:underline">{t("Products", "उत्पादने")}</Link>
+              <Link to="/about" className="block hover:underline">{t("About Us", "आमच्याबद्दल")}</Link>
+              <Link to="/contact" className="block hover:underline">{t("Contact", "संपर्क")}</Link>
+              <Link to="/admin-login" className="block hover:underline font-semibold text-dairy-gold">{t("Admin Login", "अ‍ॅडमिन लॉग इन")}</Link>
             </div>
           </div>
         </div>
